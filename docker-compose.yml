@@ -1,0 +1,38 @@
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    tty: true
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  db:
+    container_name: db
+    build:
+      context: .
+      dockerfile: db.dockerfile
+    tty: true
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "tester"
+      MYSQL_PASSWORD: "password"
+    volumes:
+      - type: volume
+        source: mysql_data
+        target: /var/lib/mysql
+    networks:
+      - default
+
+networks:
+  default:
+volumes:
+  mysql_data:
