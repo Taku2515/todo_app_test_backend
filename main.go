@@ -21,5 +21,8 @@ func main() {
 	// PUT
 	e.PUT("update/username/:id", services.UpdateUser)
 
+	// DELETE
+	e.DELETE("delete/user/:id", services.DeleteUser)
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
