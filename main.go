@@ -14,6 +14,7 @@ func main() {
 
 	// POST
 	e.POST("/create/user", services.NewUser)
+	e.POST("/create/post", services.NewPost)
 
 	// GET
 	e.GET("/get/users", services.GetUsers)
