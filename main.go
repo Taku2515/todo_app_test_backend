@@ -18,6 +18,7 @@ func main() {
 
 	// GET
 	e.GET("/get/users", services.GetUsers)
+	e.GET("/get/posts", services.GetPosts)
 
 	// PUT
 	e.PUT("update/username/:id", services.UpdateUser)
