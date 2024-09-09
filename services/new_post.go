@@ -29,8 +29,17 @@ func NewPost(c echo.Context) error {
 	post.Importance = obj.Importance
 	post.Deadline = obj.Deadline
 
-	post = crud.CreatePostDB(post)
 
-	return c.JSON(http.StatusCreated, post)
+	createedPost, err := crud.CreatePostDB(post)
+
+	if err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, "failed to create post")
+	}
+
+	if createedPost.ID == 0 {
+		return echo.NewHTTPError(http.StatusConflict, "failed to create post | id error")
+	}
+
+	return c.JSON(http.StatusCreated, createedPost)
 
 }

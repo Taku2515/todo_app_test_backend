@@ -15,8 +15,8 @@ type Post struct {
 	Task       string    `json:"task"`          // task
 	Importance uint      `json:"importance"`    // importance
 	Deadline   string    `json:"deadline"`      // deadline
-	DoneAt     time.Time `json:"done_at"`       // done_at
+	// DoneAt     time.Time `json:"done_at"`       // done_at
 	CreatedAt  time.Time `json:"created_at"`    // created_at
 	UpdatedAt  time.Time `json:"update_at"`     // update_at
-	DeletedAt  time.Time `json:"deleted_at"`    // deleted_at
+	//DeletedAt  time.Time `json:"deleted_at"`    // deleted_at
 }
