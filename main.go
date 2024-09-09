@@ -22,6 +22,7 @@ func main() {
 
 	// PUT
 	e.PUT("update/username/:id", services.UpdateUser)
+	e.PUT("update/post/:postId", services.UpdatePost)
 
 	// DELETE
 	e.DELETE("delete/user/:id", services.DeleteUser)
