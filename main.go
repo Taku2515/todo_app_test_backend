@@ -26,6 +26,7 @@ func main() {
 
 	// DELETE
 	e.DELETE("delete/user/:id", services.DeleteUser)
+	e.DELETE("delete/post/:postId", services.DeletePost)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
